@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PT.Form-pswd</title>
+  <link rel="stylesheet" href="styles/style.css"/>
+  <style>
+    body {
+      font-family: gothic;
+      background-image: url('img5.png');
+      background-size: cover;
+      text-align: center;
+      color: yellow;
+    }
+    hr {
+      color: red;
+      height: 10px;
+    }
+    input[type="text"], input[type="password"] {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <hr>
+  <h1>LOG IN</h1>
+  <hr>
+
+  <form onsubmit="return checkLogin()">
+    <input type="text" id="username" placeholder="Username" value="" required><br>
+    <input type="password" id="password" placeholder="Password" value="" required><br>
+    <label>
+      <input type="checkbox" onclick="togglePassword()"> Show Password
+    </label><br><br>
+    <button type="submit">Login</button>
+    <button type="submit"><a href="page 2.html">Submit</a></button>
+  </form>
+
+  <script>
+    // Show/hide password
+    function togglePassword() {
+      const pwd = document.getElementById('password');
+      pwd.type = pwd.type === 'password' ? 'text' : 'password';
+    }
+
+    // Login check and redirect
+    function checkLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if(username === 'tabalnozedrick' && password === 'zedrick@25') {
+        // Ipasok ang tamang filename ng Perf Task 2 mo dito
+        window.location.href = 'PERF Task .2.html';
+      } else {
+        alert('Invalid username or password!');
+      }
+
+      return false; // prevent form submission
+    }
+  </script>
+
+</body>
+</html>
